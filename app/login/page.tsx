@@ -16,7 +16,7 @@ export default function LoginPage() {
       password,
     })
 
-    if (!res?.error) router.push('/dashboard')
+    if (!res?.error) window.location.href = '/dashboard'
   }
 
   return (
