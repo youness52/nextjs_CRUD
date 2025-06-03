@@ -1,3 +1,7 @@
 {
-  "/students/page": "app/students/page.js"
+  "/api/students/route": "app/api/students/route.js",
+  "/api/students/[id]/route": "app/api/students/[id]/route.js",
+  "/students/page": "app/students/page.js",
+  "/students/create/page": "app/students/create/page.js",
+  "/students/edit/[id]/page": "app/students/edit/[id]/page.js"
 }

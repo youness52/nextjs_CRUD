@@ -46,10 +46,10 @@ export default function StudentList() {
                 <td>{s.age}</td>
                 <td>
                   <img
-                    src={s.image}
+                    src={s.image || '/uploads/graduated.png'}
                     alt={s.name}
-                    width="50"
-                    height="50"
+                    width="40"
+                    height="40"
                     className="rounded-circle border"
                     style={{ objectFit: 'cover' }}
                   />

@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react'
 export default function EditStudent() {
   const router = useRouter()
   const params = useParams()
-  const [student, setStudent] = useState({ name: '', email: '', age: '' })
+  const [student, setStudent] = useState({ name: '', email: '', age: '', image: '' })
+  const [newImage, setNewImage] = useState<File | null>(null)
 
   useEffect(() => {
     fetch('/api/students/' + params.id)
@@ -15,22 +16,31 @@ export default function EditStudent() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
+
+    const formData = new FormData()
+    formData.append('name', student.name)
+    formData.append('email', student.email)
+    formData.append('age', student.age)
+    if (newImage) {
+      formData.append('image', newImage)
+    }
+
     await fetch('/api/students/' + params.id, {
       method: 'PUT',
-      body: JSON.stringify({ ...student, age: parseInt(student.age) }),
+      body: formData,
     })
+
     router.push('/students')
   }
 
   return (
     <div className="container mt-5" style={{ maxWidth: '500px' }}>
       <h2 className="mb-4">Edit Student</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
             className="form-control"
-            placeholder="Name"
             value={student.name}
             onChange={e => setStudent({ ...student, name: e.target.value })}
             required
@@ -41,7 +51,6 @@ export default function EditStudent() {
           <input
             type="email"
             className="form-control"
-            placeholder="Email"
             value={student.email}
             onChange={e => setStudent({ ...student, email: e.target.value })}
             required
@@ -52,11 +61,23 @@ export default function EditStudent() {
           <input
             type="number"
             className="form-control"
-            placeholder="Age"
             value={student.age}
             onChange={e => setStudent({ ...student, age: e.target.value })}
             required
             min={0}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Current Image</label><br />
+          <img src={student.image || '/uploads/graduated.png'} alt="Student" width={100} />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">New Image (optional)</label>
+          <input
+            type="file"
+            accept="image/*"
+            className="form-control"
+            onChange={e => setNewImage(e.target.files?.[0] || null)}
           />
         </div>
         <button type="submit" className="btn btn-primary w-100">
