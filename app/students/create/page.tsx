@@ -5,20 +5,31 @@ import { useState } from 'react'
 export default function CreateStudent() {
   const router = useRouter()
   const [student, setStudent] = useState({ name: '', email: '', age: '' })
+  const [image, setImage] = useState<File | null>(null)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
+
+    const formData = new FormData()
+    formData.append('name', student.name)
+    formData.append('email', student.email)
+    formData.append('age', student.age)
+    if (image) {
+      formData.append('image', image)
+    }
+
     await fetch('/api/students', {
       method: 'POST',
-      body: JSON.stringify({ ...student, age: parseInt(student.age) }),
+      body: formData,
     })
+
     router.push('/students')
   }
 
   return (
     <div className="container mt-5" style={{ maxWidth: '500px' }}>
       <h2 className="mb-4">Add Student</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="mb-3">
           <label className="form-label">Name</label>
           <input
@@ -50,6 +61,15 @@ export default function CreateStudent() {
             onChange={e => setStudent({ ...student, age: e.target.value })}
             required
             min={0}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Profile Image</label>
+          <input
+            type="file"
+            accept="image/*"
+            className="form-control"
+            onChange={e => setImage(e.target.files?.[0] || null)}
           />
         </div>
         <button type="submit" className="btn btn-success w-100">

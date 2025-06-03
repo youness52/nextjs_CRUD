@@ -12,6 +12,7 @@ model Student {
   name  String
   email String @unique
   age   Int
+  image String? // Stores filename or URL to the uploaded image
 }
 
 model Teacher {

@@ -34,6 +34,7 @@ export default function StudentList() {
               <th>Name</th>
               <th>Email</th>
               <th>Age</th>
+              <th>image</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -43,6 +44,17 @@ export default function StudentList() {
                 <td>{s.name}</td>
                 <td>{s.email}</td>
                 <td>{s.age}</td>
+                <td>
+                  <img
+                    src={s.image}
+                    alt={s.name}
+                    width="50"
+                    height="50"
+                    className="rounded-circle border"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </td>
+
                 <td>
                   <Link href={`/students/edit/${s.id}`} className="btn btn-sm btn-warning me-2">
                     Edit

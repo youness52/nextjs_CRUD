@@ -19,7 +19,7 @@ exports.modules = {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   GET: () => (/* binding */ GET),\n/* harmony export */   POST: () => (/* binding */ POST)\n/* harmony export */ });\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @prisma/client */ \"@prisma/client\");\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);\n\nconst prisma = new _prisma_client__WEBPACK_IMPORTED_MODULE_0__.PrismaClient();\nasync function GET() {\n    const students = await prisma.student.findMany();\n    return Response.json(students);\n}\nasync function POST(req) {\n    const data = await req.json();\n    const student = await prisma.student.create({\n        data\n    });\n    return Response.json(student);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvYXBpL3N0dWRlbnRzL3JvdXRlLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBNkM7QUFFN0MsTUFBTUMsU0FBUyxJQUFJRCx3REFBWUE7QUFFeEIsZUFBZUU7SUFDcEIsTUFBTUMsV0FBVyxNQUFNRixPQUFPRyxPQUFPLENBQUNDLFFBQVE7SUFDOUMsT0FBT0MsU0FBU0MsSUFBSSxDQUFDSjtBQUN2QjtBQUVPLGVBQWVLLEtBQUtDLEdBQVk7SUFDckMsTUFBTUMsT0FBTyxNQUFNRCxJQUFJRixJQUFJO0lBQzNCLE1BQU1ILFVBQVUsTUFBTUgsT0FBT0csT0FBTyxDQUFDTyxNQUFNLENBQUM7UUFBRUQ7SUFBSztJQUNuRCxPQUFPSixTQUFTQyxJQUFJLENBQUNIO0FBQ3ZCIiwic291cmNlcyI6WyJDOlxcVXNlcnNcXFpCQUlSXFxEb2N1bWVudHNcXG5leHRqc1xcbmV4dGpzLWF1dGgtY3J1ZFxcYXBwXFxhcGlcXHN0dWRlbnRzXFxyb3V0ZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQcmlzbWFDbGllbnQgfSBmcm9tIFwiQHByaXNtYS9jbGllbnRcIlxuXG5jb25zdCBwcmlzbWEgPSBuZXcgUHJpc21hQ2xpZW50KClcblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIEdFVCgpIHtcbiAgY29uc3Qgc3R1ZGVudHMgPSBhd2FpdCBwcmlzbWEuc3R1ZGVudC5maW5kTWFueSgpXG4gIHJldHVybiBSZXNwb25zZS5qc29uKHN0dWRlbnRzKVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gUE9TVChyZXE6IFJlcXVlc3QpIHtcbiAgY29uc3QgZGF0YSA9IGF3YWl0IHJlcS5qc29uKClcbiAgY29uc3Qgc3R1ZGVudCA9IGF3YWl0IHByaXNtYS5zdHVkZW50LmNyZWF0ZSh7IGRhdGEgfSlcbiAgcmV0dXJuIFJlc3BvbnNlLmpzb24oc3R1ZGVudClcbn1cbiJdLCJuYW1lcyI6WyJQcmlzbWFDbGllbnQiLCJwcmlzbWEiLCJHRVQiLCJzdHVkZW50cyIsInN0dWRlbnQiLCJmaW5kTWFueSIsIlJlc3BvbnNlIiwianNvbiIsIlBPU1QiLCJyZXEiLCJkYXRhIiwiY3JlYXRlIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/./app/api/students/route.ts\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   GET: () => (/* binding */ GET),\n/* harmony export */   POST: () => (/* binding */ POST),\n/* harmony export */   config: () => (/* binding */ config)\n/* harmony export */ });\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @prisma/client */ \"@prisma/client\");\n/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var fs_promises__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs/promises */ \"fs/promises\");\n/* harmony import */ var fs_promises__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs_promises__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_server__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/server */ \"(rsc)/./node_modules/next/dist/api/server.js\");\n\n\n\n\nconst config = {\n    api: {\n        bodyParser: false\n    }\n};\nconst prisma = new _prisma_client__WEBPACK_IMPORTED_MODULE_0__.PrismaClient();\nasync function GET() {\n    const students = await prisma.student.findMany();\n    return next_server__WEBPACK_IMPORTED_MODULE_3__.NextResponse.json(students);\n}\nasync function POST(req) {\n    const formData = await req.formData();\n    const name = formData.get('name');\n    const email = formData.get('email');\n    const age = parseInt(formData.get('age'));\n    const file = formData.get('image');\n    if (!file || !file.name) {\n        return next_server__WEBPACK_IMPORTED_MODULE_3__.NextResponse.json({\n            error: 'No file uploaded'\n        }, {\n            status: 400\n        });\n    }\n    const bytes = await file.arrayBuffer();\n    const buffer = Buffer.from(bytes);\n    const fileName = `${Date.now()}-${file.name}`;\n    const filePath = (0,path__WEBPACK_IMPORTED_MODULE_2__.join)(process.cwd(), 'public/uploads', fileName);\n    await (0,fs_promises__WEBPACK_IMPORTED_MODULE_1__.writeFile)(filePath, buffer);\n    const student = await prisma.student.create({\n        data: {\n            name,\n            email,\n            age,\n            image: `/uploads/${fileName}`\n        }\n    });\n    return next_server__WEBPACK_IMPORTED_MODULE_3__.NextResponse.json(student);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvYXBpL3N0dWRlbnRzL3JvdXRlLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7QUFBNkM7QUFDTjtBQUNaO0FBQzRCO0FBR2hELE1BQU1JLFNBQVM7SUFDcEJDLEtBQUs7UUFDSEMsWUFBWTtJQUNkO0FBQ0YsRUFBQztBQUVELE1BQU1DLFNBQVMsSUFBSVAsd0RBQVlBO0FBRXhCLGVBQWVRO0lBQ3BCLE1BQU1DLFdBQVcsTUFBTUYsT0FBT0csT0FBTyxDQUFDQyxRQUFRO0lBQzlDLE9BQU9SLHFEQUFZQSxDQUFDUyxJQUFJLENBQUNIO0FBQzNCO0FBRU8sZUFBZUksS0FBS0MsR0FBZ0I7SUFDekMsTUFBTUMsV0FBVyxNQUFNRCxJQUFJQyxRQUFRO0lBRW5DLE1BQU1DLE9BQU9ELFNBQVNFLEdBQUcsQ0FBQztJQUMxQixNQUFNQyxRQUFRSCxTQUFTRSxHQUFHLENBQUM7SUFDM0IsTUFBTUUsTUFBTUMsU0FBU0wsU0FBU0UsR0FBRyxDQUFDO0lBQ2xDLE1BQU1JLE9BQU9OLFNBQVNFLEdBQUcsQ0FBQztJQUUxQixJQUFJLENBQUNJLFFBQVEsQ0FBQ0EsS0FBS0wsSUFBSSxFQUFFO1FBQ3ZCLE9BQU9iLHFEQUFZQSxDQUFDUyxJQUFJLENBQUM7WUFBRVUsT0FBTztRQUFtQixHQUFHO1lBQUVDLFFBQVE7UUFBSTtJQUN4RTtJQUVBLE1BQU1DLFFBQVEsTUFBTUgsS0FBS0ksV0FBVztJQUNwQyxNQUFNQyxTQUFTQyxPQUFPQyxJQUFJLENBQUNKO0lBQzNCLE1BQU1LLFdBQVcsR0FBR0MsS0FBS0MsR0FBRyxHQUFHLENBQUMsRUFBRVYsS0FBS0wsSUFBSSxFQUFFO0lBQzdDLE1BQU1nQixXQUFXOUIsMENBQUlBLENBQUMrQixRQUFRQyxHQUFHLElBQUksa0JBQWtCTDtJQUV2RCxNQUFNNUIsc0RBQVNBLENBQUMrQixVQUFVTjtJQUUxQixNQUFNaEIsVUFBVSxNQUFNSCxPQUFPRyxPQUFPLENBQUN5QixNQUFNLENBQUM7UUFDMUNDLE1BQU07WUFDSnBCO1lBQ0FFO1lBQ0FDO1lBQ0FrQixPQUFPLENBQUMsU0FBUyxFQUFFUixVQUFVO1FBQy9CO0lBQ0Y7SUFFQSxPQUFPMUIscURBQVlBLENBQUNTLElBQUksQ0FBQ0Y7QUFDM0IiLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcWkJBSVJcXERvY3VtZW50c1xcbmV4dGpzXFxuZXh0anMtYXV0aC1jcnVkXFxhcHBcXGFwaVxcc3R1ZGVudHNcXHJvdXRlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFByaXNtYUNsaWVudCB9IGZyb20gJ0BwcmlzbWEvY2xpZW50J1xuaW1wb3J0IHsgd3JpdGVGaWxlIH0gZnJvbSAnZnMvcHJvbWlzZXMnXG5pbXBvcnQgeyBqb2luIH0gZnJvbSAncGF0aCdcbmltcG9ydCB7IE5leHRSZXF1ZXN0LCBOZXh0UmVzcG9uc2UgfSBmcm9tICduZXh0L3NlcnZlcidcbmltcG9ydCBmb3JtaWRhYmxlIGZyb20gJ2Zvcm1pZGFibGUnXG5cbmV4cG9ydCBjb25zdCBjb25maWcgPSB7XG4gIGFwaToge1xuICAgIGJvZHlQYXJzZXI6IGZhbHNlLFxuICB9LFxufVxuXG5jb25zdCBwcmlzbWEgPSBuZXcgUHJpc21hQ2xpZW50KClcblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIEdFVCgpIHtcbiAgY29uc3Qgc3R1ZGVudHMgPSBhd2FpdCBwcmlzbWEuc3R1ZGVudC5maW5kTWFueSgpXG4gIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbihzdHVkZW50cylcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIFBPU1QocmVxOiBOZXh0UmVxdWVzdCkge1xuICBjb25zdCBmb3JtRGF0YSA9IGF3YWl0IHJlcS5mb3JtRGF0YSgpXG5cbiAgY29uc3QgbmFtZSA9IGZvcm1EYXRhLmdldCgnbmFtZScpIGFzIHN0cmluZ1xuICBjb25zdCBlbWFpbCA9IGZvcm1EYXRhLmdldCgnZW1haWwnKSBhcyBzdHJpbmdcbiAgY29uc3QgYWdlID0gcGFyc2VJbnQoZm9ybURhdGEuZ2V0KCdhZ2UnKSBhcyBzdHJpbmcpXG4gIGNvbnN0IGZpbGUgPSBmb3JtRGF0YS5nZXQoJ2ltYWdlJykgYXMgRmlsZVxuXG4gIGlmICghZmlsZSB8fCAhZmlsZS5uYW1lKSB7XG4gICAgcmV0dXJuIE5leHRSZXNwb25zZS5qc29uKHsgZXJyb3I6ICdObyBmaWxlIHVwbG9hZGVkJyB9LCB7IHN0YXR1czogNDAwIH0pXG4gIH1cblxuICBjb25zdCBieXRlcyA9IGF3YWl0IGZpbGUuYXJyYXlCdWZmZXIoKVxuICBjb25zdCBidWZmZXIgPSBCdWZmZXIuZnJvbShieXRlcylcbiAgY29uc3QgZmlsZU5hbWUgPSBgJHtEYXRlLm5vdygpfS0ke2ZpbGUubmFtZX1gXG4gIGNvbnN0IGZpbGVQYXRoID0gam9pbihwcm9jZXNzLmN3ZCgpLCAncHVibGljL3VwbG9hZHMnLCBmaWxlTmFtZSlcblxuICBhd2FpdCB3cml0ZUZpbGUoZmlsZVBhdGgsIGJ1ZmZlcilcblxuICBjb25zdCBzdHVkZW50ID0gYXdhaXQgcHJpc21hLnN0dWRlbnQuY3JlYXRlKHtcbiAgICBkYXRhOiB7XG4gICAgICBuYW1lLFxuICAgICAgZW1haWwsXG4gICAgICBhZ2UsXG4gICAgICBpbWFnZTogYC91cGxvYWRzLyR7ZmlsZU5hbWV9YCxcbiAgICB9LFxuICB9KVxuXG4gIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbihzdHVkZW50KVxufVxuXG4iXSwibmFtZXMiOlsiUHJpc21hQ2xpZW50Iiwid3JpdGVGaWxlIiwiam9pbiIsIk5leHRSZXNwb25zZSIsImNvbmZpZyIsImFwaSIsImJvZHlQYXJzZXIiLCJwcmlzbWEiLCJHRVQiLCJzdHVkZW50cyIsInN0dWRlbnQiLCJmaW5kTWFueSIsImpzb24iLCJQT1NUIiwicmVxIiwiZm9ybURhdGEiLCJuYW1lIiwiZ2V0IiwiZW1haWwiLCJhZ2UiLCJwYXJzZUludCIsImZpbGUiLCJlcnJvciIsInN0YXR1cyIsImJ5dGVzIiwiYXJyYXlCdWZmZXIiLCJidWZmZXIiLCJCdWZmZXIiLCJmcm9tIiwiZmlsZU5hbWUiLCJEYXRlIiwibm93IiwiZmlsZVBhdGgiLCJwcm9jZXNzIiwiY3dkIiwiY3JlYXRlIiwiZGF0YSIsImltYWdlIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/./app/api/students/route.ts\n");
 
 /***/ }),
 
@@ -51,6 +51,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (() => {
 
 
+
+/***/ }),
+
+/***/ "../app-render/after-task-async-storage.external":
+/*!***********************************************************************************!*\
+  !*** external "next/dist/server/app-render/after-task-async-storage.external.js" ***!
+  \***********************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/server/app-render/after-task-async-storage.external.js");
 
 /***/ }),
 
@@ -87,6 +98,17 @@ module.exports = require("@prisma/client");
 
 /***/ }),
 
+/***/ "fs/promises":
+/*!******************************!*\
+  !*** external "fs/promises" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs/promises");
+
+/***/ }),
+
 /***/ "next/dist/compiled/next-server/app-page.runtime.dev.js":
 /*!*************************************************************************!*\
   !*** external "next/dist/compiled/next-server/app-page.runtime.dev.js" ***!
@@ -106,6 +128,17 @@ module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js
 
 "use strict";
 module.exports = require("next/dist/compiled/next-server/app-route.runtime.dev.js");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
 
 /***/ })
 
