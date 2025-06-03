@@ -1,0 +1,11 @@
+{
+  "/api/students/count/route": "app/api/students/count/route.js",
+  "/api/teachers/count/route": "app/api/teachers/count/route.js",
+  "/api/students/route": "app/api/students/route.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/teachers/page": "app/teachers/page.js",
+  "/teachers/create/page": "app/teachers/create/page.js",
+  "/login/page": "app/login/page.js",
+  "/students/page": "app/students/page.js",
+  "/students/create/page": "app/students/create/page.js"
+}
