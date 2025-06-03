@@ -1,12 +1,14 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/students/[id]/route": "app/api/students/[id]/route.js",
+  "/api/students/route": "app/api/students/route.js",
   "/api/students/count/route": "app/api/students/count/route.js",
   "/api/teachers/count/route": "app/api/teachers/count/route.js",
-  "/api/students/route": "app/api/students/route.js",
-  "/dashboard/page": "app/dashboard/page.js",
+  "/api/teachers/route": "app/api/teachers/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/students/page": "app/students/page.js",
   "/students/edit/[id]/page": "app/students/edit/[id]/page.js",
   "/login/page": "app/login/page.js",
-  "/students/create/page": "app/students/create/page.js"
+  "/students/create/page": "app/students/create/page.js",
+  "/teachers/page": "app/teachers/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
 }

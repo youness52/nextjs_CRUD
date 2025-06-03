@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import DataTable from 'react-data-table-component'
 
 export default function StudentList() {
   const [students, setStudents] = useState([])
@@ -16,6 +17,50 @@ export default function StudentList() {
     setStudents(students.filter(s => s.id !== id))
   }
 
+  const columns = [
+    {
+      name: 'Name',
+      selector: (row: any) => row.name,
+      sortable: true,
+    },
+    {
+      name: 'Email',
+      selector: (row: any) => row.email,
+      sortable: true,
+    },
+    {
+      name: 'Age',
+      selector: (row: any) => row.age,
+      sortable: true,
+    },
+    {
+      name: 'Image',
+      cell: (row: any) => (
+        <img
+          src={row.image || '/uploads/graduated.png'}
+          alt={row.name}
+          width="40"
+          height="40"
+          className="rounded-circle border"
+          style={{ objectFit: 'cover' }}
+        />
+      ),
+    },
+    {
+      name: 'Actions',
+      cell: (row: any) => (
+        <>
+          <Link href={`/students/edit/${row.id}`} className="btn btn-sm btn-warning me-2">
+            Edit
+          </Link>
+          <button onClick={() => handleDelete(row.id)} className="btn btn-sm btn-danger">
+            Delete
+          </button>
+        </>
+      ),
+    },
+  ]
+
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center mb-4">
@@ -25,49 +70,15 @@ export default function StudentList() {
         </Link>
       </div>
 
-      {students.length === 0 ? (
-        <p>No students found.</p>
-      ) : (
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>image</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {students.map((s: any) => (
-              <tr key={s.id}>
-                <td>{s.name}</td>
-                <td>{s.email}</td>
-                <td>{s.age}</td>
-                <td>
-                  <img
-                    src={s.image || '/uploads/graduated.png'}
-                    alt={s.name}
-                    width="40"
-                    height="40"
-                    className="rounded-circle border"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </td>
-
-                <td>
-                  <Link href={`/students/edit/${s.id}`} className="btn btn-sm btn-warning me-2">
-                    Edit
-                  </Link>
-                  <button onClick={() => handleDelete(s.id)} className="btn btn-sm btn-danger">
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+      <DataTable
+        columns={columns}
+        data={students}
+        pagination
+        highlightOnHover
+        responsive
+        striped
+        noDataComponent="No students found."
+      />
     </div>
   )
 }
