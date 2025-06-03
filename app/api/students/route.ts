@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 import { NextRequest, NextResponse } from 'next/server'
-import formidable from 'formidable'
+
 
 export const config = {
   api: {

@@ -1,5 +1,3 @@
 {
-  "/api/students/route": "app/api/students/route.js",
-  "/students/page": "app/students/page.js",
-  "/students/create/page": "app/students/create/page.js"
+  "/students/page": "app/students/page.js"
 }
