@@ -38,6 +38,9 @@ export default function Navbar({ session }: { session: any }) {
                 <li className="nav-item">
                   <Link href="/teachers" className="nav-link">Teachers</Link>
                 </li>
+                 <li className="nav-item">
+                  <Link href="/users" className="nav-link">Users</Link>
+                </li>
               </ul>
 
               <ul className="navbar-nav ms-auto">
