@@ -62,6 +62,7 @@ export default function UserList() {
           <Link href={`/users/edit/${row.id}`} className="btn btn-sm btn-warning me-2">
             Edit
           </Link>
+          { Users.length>1 &&(
           <button
             onClick={() => {
               if (window.confirm("Are you sure you want to delete this user ?")) {
@@ -72,6 +73,7 @@ export default function UserList() {
           >
             Delete
           </button>
+        )}
         </>
       ),
     },

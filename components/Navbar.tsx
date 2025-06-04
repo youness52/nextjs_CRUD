@@ -2,8 +2,13 @@
 import Link from 'next/link'
 import { signOut } from 'next-auth/react'
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation' // 👈 New import
+
 
 export default function Navbar({ session }: { session: any }) {
+  const pathname = usePathname() // 👈 Current route
+  const isActive = (path: string) => pathname.startsWith(path) ? 'nav-link active' : 'nav-link'
+
   useEffect(() => {
     // Ensure Bootstrap JavaScript is loaded for dropdown functionality
     import('bootstrap/dist/js/bootstrap.bundle.min.js')
@@ -30,16 +35,16 @@ export default function Navbar({ session }: { session: any }) {
             <>
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link href="/dashboard" className="nav-link">Dashboard</Link>
+                  <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/students" className="nav-link">Students</Link>
+                  <Link href="/students" className={isActive('/students')}>Students</Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/teachers" className="nav-link">Teachers</Link>
+                  <Link href="/teachers" className={isActive('/teachers')}>Teachers</Link>
                 </li>
-                 <li className="nav-item">
-                  <Link href="/users" className="nav-link">Users</Link>
+                <li className="nav-item">
+                  <Link href="/users" className={isActive('/users')}>Users</Link>
                 </li>
               </ul>
 
@@ -51,8 +56,8 @@ export default function Navbar({ session }: { session: any }) {
                     id="userDropdown"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                    style={{ 
-                      border: 'none', 
+                    style={{
+                      border: 'none',
                       background: 'transparent',
                       color: 'rgba(255, 255, 255, 0.75)',
                       padding: '0.5rem 1rem'
