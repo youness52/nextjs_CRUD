@@ -6,10 +6,15 @@ export async function middleware(req) {
   const { pathname } = req.nextUrl
 
   const isAuthPage = pathname.startsWith('/login') || pathname.startsWith('/register')
+  const publicPaths = ['/client'] // Add your public pages here
+  const isPublicPath = publicPaths.some(path => pathname.startsWith(path))
 
-  // Redirect '/' to '/dashboard'
   if (pathname === '/') {
     return NextResponse.redirect(new URL('/dashboard', req.url))
+  }
+
+  if (isPublicPath) {
+    return NextResponse.next()
   }
 
   if (token && isAuthPage) {
@@ -23,6 +28,7 @@ export async function middleware(req) {
   return NextResponse.next()
 }
 
+
 export const config = {
-  matcher: ['/', '/students/:path*', '/teachers/:path*', '/dashboard/:path*', '/profile/:path*', '/users/:path*', '/login', '/register'],
+  matcher: ['/', '/students/:path*', '/teachers/:path*', '/dashboard/:path*', '/profile/:path*', '/users/:path*', '/courses/:path*','/login', '/register'],
 }

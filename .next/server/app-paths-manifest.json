@@ -1,9 +1,8 @@
 {
-  "/api/users/route": "app/api/users/route.js",
-  "/api/users/[id]/route": "app/api/users/[id]/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/courses/route": "app/api/courses/route.js",
+  "/courses/page": "app/courses/page.js",
   "/dashboard/page": "app/dashboard/page.js",
   "/users/page": "app/users/page.js",
-  "/students/edit/[id]/page": "app/students/edit/[id]/page.js",
-  "/users/create/page": "app/users/create/page.js",
-  "/users/edit/[id]/page": "app/users/edit/[id]/page.js"
+  "/client/courses/page": "app/client/courses/page.js"
 }

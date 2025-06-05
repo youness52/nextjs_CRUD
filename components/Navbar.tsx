@@ -43,6 +43,9 @@ export default function Navbar({ session }: { session: any }) {
                 <li className="nav-item">
                   <Link href="/teachers" className={isActive('/teachers')}>Teachers</Link>
                 </li>
+                 <li className="nav-item">
+                  <Link href="/courses" className={isActive('/courses')}>Courses</Link>
+                </li>
                 <li className="nav-item">
                   <Link href="/users" className={isActive('/users')}>Users</Link>
                 </li>

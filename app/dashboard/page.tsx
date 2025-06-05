@@ -6,6 +6,7 @@ import { signOut } from 'next-auth/react'
 export default function Dashboard() {
   const [studentCount, setStudentCount] = useState(0)
   const [teacherCount, setTeacherCount] = useState(0)
+  const [courseCount, setCourseCount] = useState(0)
   const [userCount, setUserCount] = useState(0)
   useEffect(() => {
     fetch('/api/students/count')
@@ -17,6 +18,11 @@ export default function Dashboard() {
     fetch('/api/teachers/count')
       .then(res => res.json())
       .then(data => setTeacherCount(data.count))
+  }, [])
+  useEffect(() => {
+    fetch('/api/courses/count')
+      .then(res => res.json())
+      .then(data => setCourseCount(data.count))
   }, [])
     useEffect(() => {
     fetch('/api/users/count')
@@ -38,7 +44,7 @@ export default function Dashboard() {
       </div>
 
       <div className="row g-4">
-        <div className="col-md-4">
+        <div className="col-md-3">
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title">Students</h5>
@@ -50,7 +56,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="col-md-4">
+        <div className="col-md-3">
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title">Teachers</h5>
@@ -61,8 +67,19 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+         <div className="col-md-3">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title">Course</h5>
+              <p className="card-text">Total: {courseCount}</p>
+              <Link href="/courses" className="btn btn-primary">
+                Manage Courses
+              </Link>
+            </div>
+          </div>
+        </div>
 
-           <div className="col-md-4">
+           <div className="col-md-3">
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title">Users</h5>
