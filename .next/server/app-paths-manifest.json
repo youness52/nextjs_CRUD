@@ -1,8 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/courses/route": "app/api/courses/route.js",
   "/courses/page": "app/courses/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/users/page": "app/users/page.js",
-  "/client/courses/page": "app/client/courses/page.js"
+  "/students/page": "app/students/page.js",
+  "/client/courses/page": "app/client/courses/page.js",
+  "/login/page": "app/login/page.js",
+  "/dashboard/page": "app/dashboard/page.js"
 }

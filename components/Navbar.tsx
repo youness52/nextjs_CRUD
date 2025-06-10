@@ -9,12 +9,12 @@ export default function Navbar({ session }: { session: any }) {
   const pathname = usePathname() // 👈 Current route
   const isActive = (path: string) => pathname.startsWith(path) ? 'nav-link active' : 'nav-link'
 
-  useEffect(() => {
-    // Ensure Bootstrap JavaScript is loaded for dropdown functionality
-    import('bootstrap/dist/js/bootstrap.bundle.min.js')
-  }, [])
+  
 
   return (
+
+    
+    
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link href="/" className="navbar-brand">School Manager</Link>
@@ -90,12 +90,13 @@ export default function Navbar({ session }: { session: any }) {
             </>
           ) : (
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+               <li className="nav-item">
+                  <Link href="/client/courses" className={isActive('/courses')}>Courses</Link>
+                </li>
               <li className="nav-item">
                 <Link href="/login" className="nav-link">Login</Link>
               </li>
-              <li className="nav-item">
-                <Link href="/register" className="nav-link">Register</Link>
-              </li>
+               
             </ul>
           )}
         </div>

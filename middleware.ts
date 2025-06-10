@@ -5,7 +5,7 @@ export async function middleware(req) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
   const { pathname } = req.nextUrl
 
-  const isAuthPage = pathname.startsWith('/login') || pathname.startsWith('/register')
+  const isAuthPage = pathname.startsWith('/login') 
   const publicPaths = ['/client'] // Add your public pages here
   const isPublicPath = publicPaths.some(path => pathname.startsWith(path))
 
