@@ -56,7 +56,11 @@ export default function LoginPage() {
     <button type="submit" className="btn btn-primary w-100">Login</button>
 
     {/* Register Link */}
-  
+  <p> <br />
+    Email : admin@exemple.com <br />
+    Password : 1234
+
+  </p>
   </form>
 </div>
 
